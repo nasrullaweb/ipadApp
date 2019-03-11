@@ -1,0 +1,608 @@
+@font-face {
+    font-family: "IBMPlexSans Regular";
+    src: url(../fonts/IBMPlexSans-Thin.ttf);
+}
+
+@font-face {
+    font-family: "IBMPlexSans Light";
+    src: url(../fonts/IBMPlexSans-Light.ttf);
+}
+
+@font-face {
+    font-family: "IBMPlexSans Medium";
+    src: url(../fonts/IBMPlexSans-Medium.ttf);
+}
+
+@font-face {
+    font-family: "IBMPlexSans Bold";
+    src: url(../fonts/IBMPlexSans-Bold.ttf);
+}
+
+@font-face {
+    font-family: "IBMPlexSans SemiBold";
+    src: url(../fonts/IBMPlexSans-SemiBold.ttf);
+}
+
+body{
+    margin: 0;
+    font-family: "IBMPlexSans Regular", Verdana;
+    color: #ffffff;
+    text-align: center;
+}
+
+li {
+    list-style-type: none;
+}
+
+.container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: #c1c4c5;
+    overflow: hidden;
+    font-size: 30px;
+}
+
+.displayNone {
+    display: none;
+}
+
+.homeCntr {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: url(../images/mask.png) no-repeat center;
+    opacity: .98;
+    background-size: 100%;
+}
+
+.photoCollage {
+    width: 105%;
+}
+
+.photoCollage div {
+    width: 80px;
+    height: 80px;
+    float: left;
+    transition: all 4s ease;
+    background: url(../images/defaultSliderImg.png) no-repeat center; 
+    background-size: cover;
+}
+
+.logoCntr {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 75px;
+    z-index: 5;
+}
+
+.logo {
+    background: url(../images/logo.png) no-repeat center;
+    background-size: 100%;
+    width: 175px;
+    height: 130px;
+    display: inline-block;
+}
+
+.logoCntr p {
+    font-family: "IBMPlexSans Medium", Verdana;
+    font-size: 35px;
+    vertical-align: bottom;
+    display: inline-block;
+    padding: 0 45px 10px;
+}
+
+.ibmLogo {
+    position: absolute;
+    right: 0;
+    background: url(../images/IBMLogo.png) no-repeat center;
+    background-size: contain;
+    width: 160px;
+    height: 70px;
+    top: 0;
+    margin: 90px 110px;
+    z-index: 5;
+}
+
+.ibmLogoBlue {
+    position: absolute;
+    left: 0;
+    right: 0;
+    background: url(../images/IBMLogoBlue.png) no-repeat center;
+    height: 50px;
+    top: 29%;
+    opacity: .71;
+}
+
+.beEqualLable {
+    position: absolute;
+    font-family: "IBMPlexSans Medium", Verdana;
+    left: 0;
+    right: 0;
+    height: 50px;
+    top: 40%;
+    color: #0062ff;
+    font-size: 48px;
+    opacity: .71;   
+}
+
+.textContainer {
+    color: #fff;
+    text-align: center;
+    bottom: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 90px auto;
+    width: 60%;
+}
+
+.textContainer h2 {
+    color: #0660f5;
+    font-size: 56px;
+    margin: 0;
+    font-family: "IBMPlexSans SemiBold", Verdana;
+}
+
+.homeCntr p {
+    margin: 20px auto 50px;
+    font-size: 33px;
+    font-family: "IBMPlexSans Light", Verdana;
+}
+
+.homeCntr h4 {
+    font-family: "IBMPlexSans Bold", Verdana;
+    font-size: 38px;
+    margin: 35px;
+}
+
+.button {
+    background: #0660f5;
+    padding: 36px 70px;
+    font-family: "IBMPlexSans Bold", Verdana;
+    font-size: 44px;
+    color: #fff;
+    border: none;
+    outline: none;
+}
+
+.button.secondary{
+    background: none;
+    border: 2px solid #ffffff;
+    font-family: "IBMPlexSans SemiBold", Verdana;
+    font-size: 32px;
+}
+
+.mask {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    /* background: #000;
+    opacity: .93; */
+    background: rgba(0, 0, 0, .92);
+}
+
+.contentBlock {
+    width: 437px;
+    height: 325px;
+    margin: 32% auto;
+    position: relative;
+}
+
+.contentBlock .navigationCntr {
+    /* background: #000; */
+    color: #0660f5;
+    font-size: 1.8em;
+    text-align: center;
+    line-height: 90px;
+    height: 30%;
+    position: relative;
+}
+
+.contentBlock .navigation {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    top: 0;
+    font-family: "IBMPlexSans Regular";
+    color: #cccccc;
+    font-size: 14px;
+}
+
+.contentBlock .carouselTop, 
+.contentBlock .carouselBottom {
+    content: '';
+    width: 100%;
+    height: 34%;
+    /* background: #0660f5; */
+    background: rgba(6, 96, 245, .3);
+    -webkit-box-shadow: inset 0px 0px 71px 9px #040fad;
+    -moz-box-shadow: inset 0px 0px 71px 9px #040fad;
+    box-shadow: inset 0px 0px 71px 9px #040fad;
+    padding: 3px;
+    box-sizing: border-box;
+}
+
+.transition{
+    transition: all 3s ease;
+    transform: scale(3.2);
+}
+
+.transition .navigation {
+    transition: opacity 2s ease 1s;
+    opacity: 1;
+}
+
+.transition .textCntr {
+    transition: opacity 2s ease;
+    opacity: 0;
+}
+
+.transition .carouselTop, 
+.transition .carouselBottom{
+    transition: background-color 3s ease;
+    background-color: rgba(13, 29, 183, 1);
+}
+
+/* .sliderLeftNav,
+.sliderRightNav {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+    margin: 5px;
+    border-radius: 50%;
+}
+
+.sliderLeftNav {
+    background: #ccc;
+}
+
+.sliderRightNav {
+    background: #1a6bf3;
+} */
+.sliderItem {
+    width: 106px;
+    height: 106px;
+    background: url(../images/defaultSliderImg.png) no-repeat center;
+    background-size: cover;
+}
+
+#chooseYourPhoto .owl-carousel {
+    opacity: 0;
+}
+#chooseYourPhoto .enableSlider .owl-carousel {
+    transition: opacity 3s ease;
+    opacity: 1;
+}
+
+#chooseYourPhoto .owl-carousel .owl-nav .owl-prev,
+#chooseYourPhoto .owl-carousel .owl-nav .owl-next {
+    /* background: url('left-icon.png') no-repeat; */
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+    /* margin: 5px; */
+    outline: none;
+}
+
+#chooseYourPhoto .owl-carousel .owl-nav .owl-prev {
+    background: url(../images/navLeft.png);
+    background-size: cover;
+}
+
+#chooseYourPhoto .owl-carousel .owl-nav .owl-next {
+    background: url(../images/navRight.png);
+    background-size: cover;
+}
+
+#chooseYourPhoto .owl-carousel .owl-nav .owl-next {
+    position: absolute;
+    right: 0px;
+    top: 133px;
+}
+
+#chooseYourPhoto .owl-carousel .owl-nav .owl-prev {
+    position: absolute;
+    left: 0px;
+    top: 133px;
+}
+
+#chooseYourPhoto .owl-carousel .owl-nav .owl-prev.disabled {
+    background: url(../images/disabledNavLeft.png);
+    background-size: cover;
+}
+
+#chooseYourPhoto .owl-carousel .owl-nav .owl-next.disabled {
+    background: url(../images/disabledNavRight.png);
+    background-size: cover;
+}
+
+#chooseYourPhoto .carouselBottom .owl-carousel .owl-nav {
+    display: none;
+}
+
+.yourPledgCntr {
+    margin: 220px 240px;
+}
+
+.yourPhoto img {
+    width: 100%;
+}
+
+.yourPledgCntr p {
+    font-size: 46px;
+    margin: 0px auto 60px;
+}
+.pledgeCntr li {
+    border: 2px solid #0062ff;
+    padding: 30px 20px;
+    margin: 10px;
+    line-height: 50px;
+    font-size: 38px;
+}
+
+.pledgeCntr {
+    font-size: 0;
+}
+
+.pledgeCntr div{
+    display: inline-block;
+}
+
+.pledgeLeft,
+.pledgeRight {
+    width: 25%;
+}
+
+.yourPhoto {
+    /* width: 46%;
+    border: 20px solid #fff;
+    box-sizing: border-box;
+    height: 730px;
+    vertical-align: top;
+    margin: 10px 30px; */
+    width: 730px;
+    height: 730px;
+    border: 20px solid #fff;
+    box-sizing: border-box;
+    vertical-align: top;
+    margin: 10px 26px;
+}
+
+.pledgeCntr ul {
+    padding: 0;
+    margin: 0;
+    font-size: 38px;
+}
+
+.yourOwnPledgeLabel {
+    margin: 30px auto 15px;
+}
+
+.yourOwnPledgeLabel span {
+    background: #5078b7;
+    padding: 17px;
+    border-radius: 50%;
+    position: relative;
+    font-family: "IBMPlexSans SemiBold";
+    font-size: 34px;
+}
+
+.yourOwnPledgeLabel span:before {
+    content: '';
+    position: absolute;
+    width: 130%;
+    height: 130%;
+    top: -17%;
+    left: -17%;
+    border-radius: 50%;
+    border: 2px dotted #797979;
+}
+
+.yourOwnPledgeLabel p {
+    display: inline-block;
+    margin: 20px;
+}
+
+.yourOwnPledgeInput p {
+    display: inline-block;
+    font-family: "IBMPlexSans SemiBold";
+    font-size: 50px;
+
+}
+
+.yourOwnPledgeInput input {
+    width: 970px;
+    background: transparent;
+    font-family: "IBMPlexSans SemiBold";
+    border: 0;
+    border-bottom: 2px solid #0062ff;
+    height: 70px;
+    vertical-align: text-bottom;
+    margin-left: 20px;
+    outline: none;
+    color: #fff;
+    font-size: 50px;
+}
+
+.maskLayer {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(0, 0, 0, .69);
+    z-index: 6;
+}
+
+.popup {
+    /* width: 1135px; */
+    position: absolute;
+    max-width: 1135px;
+}
+
+.popup div {
+    background: #0660f5;
+    padding: 40px;
+    margin-top: -1px;
+}
+
+.popup .selectedPledge {
+    box-sizing: border-box;
+    font-family: "IBMPlexSans Bold";
+    font-size: 40px;
+    padding: 30px;
+}
+
+.popup .confirmPledgeCntr {
+    text-align: left;
+}
+.popup p {
+    margin: 0;
+    padding: 0px 0px 20px;
+    font-size: 36px;
+}
+.popup .chooseThis {
+    margin-right: 15px;
+}
+
+.shareCntr {
+    width: 1230px;
+    margin: 160px auto;
+}
+
+.shareCntr h2 {
+    font-family: "IBMPlexSans Medium";
+    font-size: 44px;
+    margin: 0 140px;
+    color: #cccccc;
+}
+
+.shareCntr p {
+    background: #ffffff;
+    font-family: "IBMPlexSans Regular";
+    font-size: 30px;
+    color: #000000;
+    padding: 15px 30px;
+    text-align: left;
+    display: inline-block;
+    width: 72%;
+    margin: 0;
+}
+
+.previewCntr {
+    font-size: 0;
+    margin: 30px auto 15px;
+    display: flex;
+}
+
+.previewIcon {
+    width: 270px;
+    display: inline-flex;
+    vertical-align: bottom;
+    /* background-color: #d1d1d1; */
+    background: url(../images/twitterPreviewIcon.png) no-repeat center;
+    /* background-size: 100%; */
+}   
+
+.shareCntr .photoCntr {
+    width: 975px;
+    height: 875px;
+    background: #ffffff;
+    box-sizing: border-box;
+    margin: 0 auto;
+    border: 40px solid #ffffff;
+    position: relative;
+}
+
+.photoCntr img {
+    width: 100%;
+    height: 100%;
+}
+.photoCntr .tagCntr {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 45px 35px;
+}
+
+.photoCntr .tagCntr p {
+    background: transparent;
+    color: #ffffff;
+    font-size: 70px;
+    padding: 0;
+    float: left;
+    font-family: "IBMPlexSans Medium";
+}
+
+.photoCntr .tagCntr .ibmLogo {
+    margin: 0;
+    top: 10px;
+    width: 140px;
+}
+
+.shareCntr .btnCntr {
+    margin: 40px;
+}
+
+.shareCntr .button{
+    font-size: 38px;
+    height: 100px;
+    width: 310px;
+    padding: 20px;
+    margin: auto 2px;
+}
+
+.shareCntr .emailBtm span {
+    background: url(../images/emailIcon.png) no-repeat center;
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    vertical-align: bottom;
+    margin-right: 10px;
+}
+
+.shareCntr .twitterBtn span{
+    background: url(../images/twitterIcon.png) no-repeat center;
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    vertical-align: bottom;
+    margin-right: 10px;
+}
+
+#emailAndShare .goBack {
+    position: absolute;
+    left: 0;
+    top: 40%;
+    margin: 60px;
+}
+
+#emailAndShare .goBack p {
+    font-size: 26px;
+    width: 200px;
+    font-family: "IBMPlexSans SemiBold";
+    text-align: left;
+    background: url(../images/backArrow.png) no-repeat left;
+    margin: 0;
+    padding: 70px;
+}
+
+.photoMask {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: -moz-linear-gradient(to top, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0) 30%);
+    background: -webkit-linear-gradient(to top, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0) 30%);
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0) 30%);
+}

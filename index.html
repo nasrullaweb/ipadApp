@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/owl.carousel.css">
+  <title>Document</title>
+</head>
+<body>
+    <div class="container">
+      <div class="logoCntr">
+          <div class="logo"></div>
+          <p>Be Equal</p>
+      </div>
+      <div class="ibmLogo"></div>
+      <div class="photoCollage"></div>
+      <div class="homeCntr" id="homeCntr">
+        <div class="ibmLogoBlue"></div>
+        <div class="beEqualLable">Be Equal</div>
+        <div class="textContainer">
+          <h2>Our Invitation. Our Call to arms.</h2>
+          <p>Be Equal is an initiative by IBM to engage its own people, customers and the society at large in promoting the advancement of gender equality in business leadership.</p>
+          <h4>Add your voice to the conversation.</h4>
+          <button  class="button" id="makeYourPledge">Make your pledge today!</button>
+        </div>
+      </div>
+      <div class="mask displayNone" id="chooseYourPhoto">
+        <div class="contentBlock">
+          <div class="carouselTop">
+              <div class="owl-carousel owl-theme">
+                <div class="sliderItem"><img src='images/defaultSliderImg.png'></div>
+                <div class="sliderItem"></div>
+                <div class="sliderItem"></div>
+                <div class="sliderItem"></div>
+              </div>
+          </div>
+          <div class="navigationCntr">
+              <div class="textCntr">Be Equal</div>
+              <div class="navigation"><span id="sliderLeftNav"></span>Choose your photograph and make your pledge<span id="sliderRightNav"></span></div>
+            </div>
+          <div class="carouselBottom">
+              <div class="owl-carousel owl-theme">
+                  <div class="sliderItem"><img src='images/defaultSliderImg.png'></div>
+                  <div class="sliderItem"></div>
+                  <div class="sliderItem"></div>
+                  <div class="sliderItem"></div>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="mask displayNone" id="chooseYourPledge">
+        <div class="maskLayer displayNone" id="popupCntr">
+          <div class="popup">
+            <div class="selectedPledge"> Be Vocal</div>
+            <div class="confirmPledgeCntr">
+              <p>I pledge to <span>Be Vocal</span> and give people an oppertunity to speak up.</p>
+              <button class="button secondary chooseThis">Choose this pledge</button>
+              <button class="button secondary chooseAnother">Choose another</button>
+            </div>
+          </div>
+        </div>
+        <div class="yourPledgCntr">
+          <p>Choose one of the pledges</p>
+          <div class="pledgeCntr">
+            <div class="pledgeLeft">
+              <ul class="left">
+                <li>Be Proactive</li>
+                <li>Be Aware</li>
+                <li>Be Vocal</li>
+                <li>Be Flexible</li>
+                <li>Be Intentional</li>
+                <li>Be Open</li>
+              </ul>
+            </div>
+            <div class="yourPhoto">
+              <img src="" alt="">
+            </div>
+            <div class="pledgeRight">
+              <ul class="right">
+                <li>Be Cognizant</li>
+                <li>Be Inclusive</li>
+                <li>Be Receptive</li>
+                <li>Be Respectful</li>
+                <li>Be Accountable</li>
+                <li>Be Curious</li>
+              </ul>
+            </div>
+          </div>
+          <div class="writeYourOwn">
+            <div class="yourOwnPledgeLabel"> 
+              <span>OR</span>
+              <p>write your own pledge</p>
+            </div>
+            <div class="yourOwnPledgeInput">
+              <div>
+                <p>I pledge to Be</p>
+                <input type="text" class="myPledge">
+                <p>.</p>
+              </div>
+            </div>
+            <div>
+              <button class="button submitYourPledge">Submit your photograph and pledge</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mask displayNone" id="emailAndShare">
+          <div class="shareCntr">
+            <h2>Thank you! Here's your pledge towards creating a more equal workplace.</h2>
+            <div class="previewCntr">
+              <p><span class="myPledgeText">I pledge to Be Vocal and give people an opportunity to speak up.</span> See how you can do your part at ibm.com/BeEqual #BeEqual</p>
+              <div class="previewIcon"></div>
+            </div>
+            <div class="photoCntr">
+              <img src="images/samplePreviewImage1.png" alt=""/>
+              <div class="photoMask">
+                <div class="tagCntr">
+                  <p>#BeEqual</p>
+                  <div class="ibmLogo"></div>
+                </div>
+              </div>
+            </div>
+            <div class="btnCntr">
+              <button class="button emailBtm"><span></span>Email me</button>
+              <button class="button twitterBtn"><span></span>Tweet</button>
+            </div>
+          </div>
+          <div class="goBack">
+              <p>CHOOSE A  DIFFERENT  PLEDGE</p> 
+          </div>
+      </div>
+    </div>
+  </div>
+  <!-- <script src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script> -->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>
