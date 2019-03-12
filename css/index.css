@@ -308,35 +308,35 @@ li {
 }
 
 #chooseYourPhoto .owl-carousel .owl-nav .owl-prev {
-    background: url(../images/navLeft.png);
-    background-size: cover;
+    background: url(../images/navLeft.png) no-repeat left;
+    background-size: 70%;
 }
 
 #chooseYourPhoto .owl-carousel .owl-nav .owl-next {
-    background: url(../images/navRight.png);
-    background-size: cover;
+    background: url(../images/navRight.png) no-repeat right;
+    background-size: 70%;
 }
 
 #chooseYourPhoto .owl-carousel .owl-nav .owl-next {
     position: absolute;
     right: 0px;
-    top: 133px;
+    top: 51px;
 }
 
 #chooseYourPhoto .owl-carousel .owl-nav .owl-prev {
     position: absolute;
     left: 0px;
-    top: 66px;
+    top: 51px;
 }
 
 #chooseYourPhoto .owl-carousel .owl-nav .owl-prev.disabled {
-    background: url(../images/disabledNavLeft.png);
-    background-size: cover;
+    background: url(../images/disabledNavLeft.png) no-repeat left;
+    background-size: 70%;
 }
 
 #chooseYourPhoto .owl-carousel .owl-nav .owl-next.disabled {
-    background: url(../images/disabledNavRight.png);
-    background-size: cover;
+    background: url(../images/disabledNavRight.png) no-repeat right;
+    background-size: 70%;
 }
 
 #chooseYourPhoto .carouselBottom .owl-carousel .owl-nav {
@@ -507,7 +507,7 @@ li {
 .shareCntr h2 {
     font-family: "IBMPlexSans Medium";
     font-size: 22px;
-    margin: 0 70px 25px;
+    margin: 0 70px 15px;
     color: #cccccc;
 }
 
@@ -520,7 +520,7 @@ li {
     text-align: left;
     display: inline-block;
     margin: 0 auto;
-    width: 488px;
+    width: 477px;
     box-sizing: border-box;
 }
 
@@ -543,8 +543,8 @@ li {
 }   
 
 .shareCntr .photoCntr {
-    width: 485px;
-    height: 485px;
+    width: 475px;
+    height: 475px;
     background: #ffffff;
     box-sizing: border-box;
     margin: 0 auto;
