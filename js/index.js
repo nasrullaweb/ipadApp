@@ -250,7 +250,6 @@ if (submitYourPledge) {
     });
 }
 
-
 const goBack = document.querySelector('.goBack');
 if (goBack) { 
     goBack.addEventListener('click', function(event){
@@ -260,18 +259,15 @@ if (goBack) {
     });
 }
 
-
-
-
 const twitterBtn = document.querySelector('.twitterBtn');
 twitterBtn.addEventListener('click', function(event){
 
-    var imageInx = document.querySelector('.photoCntr img').src;
+    // var imageInx = document.querySelector('.photoCntr img').src;
     var pledgeTxt = document.querySelector('.previewCntr p').innerText
 
     html2canvas($('#photoCntr')[0]).then(function(canvas) {
         // console.log("canvas") ;
-        document.body.appendChild(canvas);
+        // document.body.appendChild(canvas);
         var data = {
             "image" : canvas.toDataURL("image/png").replace("image/png", "image/octet-stream"),
             // "image" : imageInx,
