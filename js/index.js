@@ -6,6 +6,20 @@ const chooseYourPhoto = document.getElementById('chooseYourPhoto');
 const popupCntr = document.getElementById('popupCntr');
 const emailAndShare = document.getElementById('emailAndShare');
 let imageList;
+let pledgeMessageList = {
+    'Be Proactive' : 'I pledge to <span>Be Proactive</span> and implement change within my own team.',
+    'Be Vocal' : 'I pledge to <span>Be Vocal</span> and give people an opportunity to speak up.',
+    'Be Intentional' : 'I pledge to <span>Be Intentional</span> and mentor women for leadership roles.',
+    'Be Cognizant' : 'I pledge to <span>Be Cognizant</span> and recognize and correct unconscious bias.',
+    'Be Receptive' : 'I pledge to <span>Be Receptive</span> and solicit opinions from all the voices in the room.',
+    'Be Accountable' : 'I pledge to <span>Be Accountable</span> and make equality a formal business priority.',
+    'Be Aware' : 'I pledge to <span>Be Aware</span> and hire the best qualified people even if they are different than me.',
+    'Be Flexible' : 'I pledge to <span>Be Flexible</span> and accommodate for work-life balance when considering growth opportunities.',
+    'Be Open' : 'I pledge to <span>Be Open</span> and have hard conversations about equality.',
+    'Be Inclusive' : 'I pledge to <span>Be Inclusive</span> and ensure that all my colleagues feel heard and validated.',
+    'Be Respectful' : 'I pledge to <span>Be Respectful</span> and create a space in which everyone can be their whole selves at work.',
+    'Be Curious' : 'I pledge to <span>Be Curious</span> and explore ideas and opinions that are different than mine.'
+};
 //2048 x 1536
 
 function apiRequest(method, url) {
@@ -63,17 +77,10 @@ function addimagetag(response) {
     let inx;
     let url;
     const photoCollageNodes = photoCollageCntr.childNodes;
-    // photoCollageCntr.innerHTML="";
     for(let i=0; i<520; i++){
-        // const div = document.createElement('div');
-
         inx = Math.round(Math.random() * (imageList.length -1));
-        // inx = Math.round(Math.random() * 6);
         url = getImgUrl(inx);
-        // test[i].style = `background: url(../images/${inx}.jpg) no-repeat center; background-size: cover;`;
-        // div.style = `background: url(${url}) no-repeat center; background-size: cover;`;
         photoCollageNodes[i].style = `background-image: url(${url});`;
-        // photoCollageCntr.append(div)
     }
 }
 
@@ -89,13 +96,12 @@ if (makeYourPledge) {
             chooseYourPhoto.classList.remove('displayNone');
             document.getElementById('homeCntr').classList.add('displayNone');
             setTimeout(function(){
-                // cntBlock.style = 'transform: scale(3)';
                 cntBlock && cntBlock.classList.add('transition');
                 loadSliderImages();
                 const owl = $('.owl-carousel');
                 owl.owlCarousel({
                     items:4,
-                    margin:3,
+                    margin:2,
                     dots: false,
                     nav: true,
                     navText: ["", ""]
@@ -165,7 +171,6 @@ function initializeNavigation() {
         const imgCntr = document.querySelector('.yourPhoto img');
         sliderItems.forEach(function(item){
             item.addEventListener('click', function(){
-                // alert(this.children[0].getAttribute('src'));
                 chooseYourPledge.classList.remove('displayNone');
                 imgCntr.src = this.getAttribute('src');
                 chooseYourPhoto.classList.add('displayNone');
@@ -181,7 +186,7 @@ pledgeList.forEach(function(item){
     item.addEventListener('click', function(event){
         const popup = document.querySelector('.popup');
         const selectedPledge = document.querySelector('.selectedPledge');
-        const pledgeCntr = document.querySelector('.confirmPledgeCntr span');
+        const pledgeCntr = document.querySelector('.confirmPledgeCntr p');
         let pludge = event.target.innerText;
         let left = event.target.offsetLeft;
         let top = event.target.offsetTop;
@@ -190,7 +195,7 @@ pledgeList.forEach(function(item){
 
         popupCntr.classList.remove('displayNone');
         selectedPledge.innerHTML = pludge;
-        pledgeCntr.innerHTML = pludge;
+        pledgeCntr.innerHTML = pledgeMessageList[pludge];
         let cnrtwidth = popup.offsetWidth;
         if (event.target.parentElement.classList.contains('right')){
             popup.style = `top: ${top}px; left: ${left + width - cnrtwidth}px;`;
@@ -215,8 +220,8 @@ const imgCntr = document.querySelector('.yourPhoto img');
 const photoFrame = document.querySelector('.photoCntr img');
 if (chooseThis) {
     chooseThis.addEventListener('click', function(event){
-        myPledge = event.target.parentElement.children[0].innerText;
-        document.querySelector('.myPledgeText').innerText = myPledge;
+        myPledge = event.target.parentElement.children[0].innerHTML;
+        document.querySelector('.myPledgeText').innerHTML = myPledge;
         chooseYourPledge.classList.add('displayNone');
         emailAndShare.classList.remove('displayNone');
         photoFrame.src = imgCntr.src;
@@ -239,7 +244,6 @@ if (submitYourPledge) {
 
 
 const goBack = document.querySelector('.goBack');
-
 if (goBack) { 
     goBack.addEventListener('click', function(event){
         myPledge = "";
@@ -247,3 +251,5 @@ if (goBack) {
         emailAndShare.classList.add('displayNone');
     });
 }
+
+
