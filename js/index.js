@@ -10,7 +10,7 @@ let pledgeMessageList = {
     'Be Proactive' : 'I pledge to <span>Be Proactive</span> and implement change within my own team.',
     'Be Vocal' : 'I pledge to <span>Be Vocal</span> and give people an opportunity to speak up.',
     'Be Intentional' : 'I pledge to <span>Be Intentional</span> and mentor women for leadership roles.',
-    'Be Cognizant' : 'I pledge to <span>Be Cognizant</span> and recognize and correct unconscious bias.',
+    'Be Cognisant' : 'I pledge to <span>Be Cognisant</span> and recognise and correct unconscious bias.',
     'Be Receptive' : 'I pledge to <span>Be Receptive</span> and solicit opinions from all the voices in the room.',
     'Be Accountable' : 'I pledge to <span>Be Accountable</span> and make equality a formal business priority.',
     'Be Aware' : 'I pledge to <span>Be Aware</span> and hire the best qualified people even if they are different than me.',
@@ -22,7 +22,7 @@ let pledgeMessageList = {
 };
 //2048 x 1536
 
-function apiRequest(method, url) {
+function apiRequest(method, url, data) {
     return new Promise(function (resolve, reject) {
         let api = new XMLHttpRequest();
         api.open(method, url);
@@ -36,7 +36,12 @@ function apiRequest(method, url) {
                 });
             }
         };
-        api.send();
+        if(method == 'GET') {
+            api.send();
+        } else {
+            api.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+            api.send(data);
+        }
     });
 }
 
@@ -124,10 +129,10 @@ function loadSliderImages() {
     if (imageList.length > 8) {
         for(let i=0; i<imageList.length; i++){
             url = getImgUrl(i);
-            carouselTopCnt +=`<div class="sliderItem"><img src='${url}'></div>`;
+            carouselTopCnt +=`<div class="sliderItem"><img data-image64="${i}" src='${url}'></div>`;
             if (++i < imageList.length){
                 url = getImgUrl(i);
-                carouselBottomCnt +=`<div class="sliderItem"><img src='${url}'></div>`;
+                carouselBottomCnt +=`<div class="sliderItem"><img data-image64="${i}" src='${url}'></div>`;
             } else {
                 carouselBottomCnt +=`<div class="sliderItem"></div>`;
             }
@@ -136,14 +141,14 @@ function loadSliderImages() {
         for(let i=0; i<8; i++){
             if (i < imageList.length){
                 url = getImgUrl(i);
-                carouselTopCnt +=`<div class="sliderItem"><img src='${url}'></div>`;
+                carouselTopCnt +=`<div class="sliderItem"><img data-image64="${i}" src='${url}'></div>`;
             } else {
                 carouselTopCnt +=`<div class="sliderItem"></div>`;
             }
 
             if (++i < imageList.length){
                 url = getImgUrl(i);
-                carouselBottomCnt +=`<div class="sliderItem"><img src='${url}'></div>`;
+                carouselBottomCnt +=`<div class="sliderItem"><img data-image64="${i}" src='${url}'></div>`;
             } else {
                 carouselBottomCnt +=`<div class="sliderItem"></div>`;
             }
@@ -173,6 +178,7 @@ function initializeNavigation() {
             item.addEventListener('click', function(){
                 chooseYourPledge.classList.remove('displayNone');
                 imgCntr.src = this.getAttribute('src');
+                imgCntr.setAttribute('data-image64',this.getAttribute("data-image64"));
                 chooseYourPhoto.classList.add('displayNone');
             })
         })
@@ -225,6 +231,7 @@ if (chooseThis) {
         chooseYourPledge.classList.add('displayNone');
         emailAndShare.classList.remove('displayNone');
         photoFrame.src = imgCntr.src;
+        photoFrame.setAttribute('data-image64',imgCntr.getAttribute("data-image64"));
         popupCntr.classList.add('displayNone');
     });
 }
@@ -238,6 +245,7 @@ if (submitYourPledge) {
             chooseYourPledge.classList.add('displayNone');
             emailAndShare.classList.remove('displayNone');
             photoFrame.src = imgCntr.src;
+            photoFrame.setAttribute('data-image64',imgCntr.getAttribute("data-image64"));
         } 
     });
 }
@@ -253,3 +261,49 @@ if (goBack) {
 }
 
 
+
+
+const twitterBtn = document.querySelector('.twitterBtn');
+twitterBtn.addEventListener('click', function(event){
+    // var imageInx = document.querySelector('.photoCntr img').getAttribute('data-image64');imageList[imageInx].data.data,
+    var imageInx = document.querySelector('.photoCntr img').src;
+    var pledgeTxt = document.querySelector('.previewCntr p').innerText
+    
+    var data = {
+        "image" : imageInx,
+        "text" : pledgeTxt
+    };
+
+    apiRequest('POST', '/uploadtwitter',JSON.stringify(data))
+    .then(function (response) {
+        console.log("success");
+    }, function (error) {
+        console.log(error.statusText);
+    }).catch(function (error) {
+        console.log(error);
+    });
+        // html2canvas($("#photoMask"), {
+        //   onrendered: function(canvas) {
+        //     saveAs(canvas.toDataURL(), 'canvas.png');
+        //   }
+        // });
+});
+
+// function saveAs(uri, filename) {
+//     var link = document.createElement('a');
+//     if (typeof link.download === 'string') {
+//       link.href = uri;
+//       link.download = filename;
+
+//       //Firefox requires the link to be in the body
+//       document.body.appendChild(link);
+
+//       //simulate click
+//       link.click();
+
+//       //remove the link when done
+//       document.body.removeChild(link);
+//     } else {
+//       window.open(uri);
+//     }
+//   }

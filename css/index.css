@@ -75,7 +75,7 @@ li {
     position: absolute;
     left: 0;
     top: 0;
-    margin: 38px;
+    margin: 25px;
     z-index: 5;
 }
 
@@ -92,7 +92,7 @@ li {
     font-size: 18px;
     vertical-align: bottom;
     display: inline-block;
-    padding: 0 22px 5px;
+    padding: 0 10px 5px;
 }
 
 .ibmLogo {
@@ -137,7 +137,7 @@ li {
     position: absolute;
     left: 0;
     right: 0;
-    margin: 35px auto;
+    margin: 55px auto;
     width: 59%;
 }
 
@@ -149,7 +149,7 @@ li {
 }
 
 .homeCntr p {
-    margin: 10px auto 25px;
+    margin: 10px auto 20px;
     font-size: 16px;
     font-family: "IBMPlexSans Light", Verdana;
 }
@@ -353,9 +353,10 @@ li {
 
 .yourPledgCntr p {
     font-size: 23px;
-    margin: 0px auto 20px;
+    margin: 0px auto 15px;
 }
 .pledgeCntr li {
+    font-family: "IBMPlexSans Medium";
     border: 1px solid #0062ff;
     padding: 15px 10px;
     margin: 5px;
@@ -399,6 +400,10 @@ li {
 
 .yourOwnPledgeLabel {
     margin: 15px auto 10px;
+}
+
+.submitYourPledge {
+    padding: 15px 20px;
 }
 
 .yourOwnPledgeLabel span {
@@ -461,13 +466,14 @@ li {
 .popup {
     /* width: 1135px; */
     position: absolute;
-    max-width: 650px;
+    max-width: 772px;
+    background: #0660f5;
 }
 
 .popup div {
     background: #0660f5;
     padding: 20px;
-    margin-top: -1px;
+    /* margin-top: -1px; */
 }
 
 .popup .selectedPledge {
@@ -489,10 +495,11 @@ li {
     margin: 0;
     padding: 0px 0px 10px;
     font-size: 18px;
+    font-family: "IBMPlexSans Medium";
 }
 
 .popup p span{
-    font-family: "IBMPlexSans Medium";
+    font-family: "IBMPlexSans Bold";
 }
 
 .popup .chooseThis {
@@ -501,7 +508,7 @@ li {
 
 .shareCntr {
     width: 615px;
-    margin: 80px auto;
+    margin: 60px auto;
 }
 
 .shareCntr h2 {
@@ -586,8 +593,8 @@ li {
 .btnCntr {
     position: absolute;
     margin: 20px;
-    right: 0;
-    top: 45%;
+    right: 30px;
+    top: 42%;
     margin: 30px;
 }
 
@@ -621,7 +628,7 @@ li {
 #emailAndShare .goBack {
     position: absolute;
     left: 0;
-    top: 40%;
+    top: 37%;
     margin: 30px;
 }
 
@@ -707,7 +714,7 @@ li {
         font-size: 35px;
         vertical-align: bottom;
         display: inline-block;
-        padding: 0 45px 10px;
+        padding: 0 35px 10px;
     }
     
     .ibmLogo {
