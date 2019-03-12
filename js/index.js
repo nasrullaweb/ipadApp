@@ -265,52 +265,35 @@ if (goBack) {
 
 const twitterBtn = document.querySelector('.twitterBtn');
 twitterBtn.addEventListener('click', function(event){
-    // var imageInx = document.querySelector('.photoCntr img').getAttribute('data-image64');imageList[imageInx].data.data,
+
     var imageInx = document.querySelector('.photoCntr img').src;
     var pledgeTxt = document.querySelector('.previewCntr p').innerText
-    
-    var data = {
-        "image" : imageInx,
-        "text" : pledgeTxt
-    };
 
-    apiRequest('POST', '/uploadtwitter',JSON.stringify(data))
-    .then(function (response) {
-        console.log(response);
-        if(response.success === "true"){
-            alert("Your post is twiteed successfully");
-            location.reload();
-        }else {
-            alert("There is an error, please try again");
-        }
-        // response.redirect()
-    }, function (error) {
-        console.log(error.statusText);
-    }).catch(function (error) {
-        console.log(error);
+    html2canvas($('#photoCntr')[0]).then(function(canvas) {
+        // console.log("canvas") ;
+        document.body.appendChild(canvas);
+        var data = {
+            "image" : canvas.toDataURL("image/png").replace("image/png", "image/octet-stream"),
+            // "image" : imageInx,
+            "text" : pledgeTxt
+        };
+        
+        apiRequest('POST', '/uploadtwitter',JSON.stringify(data))
+        .then(function (response) {
+            console.log(response);
+            if(response.success === "true"){
+                alert("Your post is twiteed successfully");
+                location.reload();
+            }else {
+                alert("There is an error, please try again");
+            }
+            // response.redirect()
+        }, function (error) {
+            console.log(error.statusText);
+        }).catch(function (error) {
+            console.log(error);
+        });
     });
-        // html2canvas($("#photoMask"), {
-        //   onrendered: function(canvas) {
-        //     saveAs(canvas.toDataURL(), 'canvas.png');
-        //   }
-        // });
+
 });
 
-// function saveAs(uri, filename) {
-//     var link = document.createElement('a');
-//     if (typeof link.download === 'string') {
-//       link.href = uri;
-//       link.download = filename;
-
-//       //Firefox requires the link to be in the body
-//       document.body.appendChild(link);
-
-//       //simulate click
-//       link.click();
-
-//       //remove the link when done
-//       document.body.removeChild(link);
-//     } else {
-//       window.open(uri);
-//     }
-//   }

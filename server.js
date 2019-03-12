@@ -3,12 +3,20 @@ var app = express();
 
 const bodyParser= require('body-parser');
 const fs = require('fs');
+
+app.use(bodyParser.json({limit: "50mb"}));
+app.use(bodyParser.urlencoded({limit: "100mb", extended: true, parameterLimit:1000000}));
+
 app.use(express.json());       // to support JSON-encoded bodies
 app.use(express.urlencoded());
 var Twit = require('twit');
 var config = require('./config');
 var T = new Twit(config);
- app.use(bodyParser.urlencoded({extended: true}))
+
+
+
+
+// app.use(bodyParser.urlencoded({extended: true}))
 
 
 app.use(function(req, res, next) {
