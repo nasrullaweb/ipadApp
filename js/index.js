@@ -276,7 +276,14 @@ twitterBtn.addEventListener('click', function(event){
 
     apiRequest('POST', '/uploadtwitter',JSON.stringify(data))
     .then(function (response) {
-        console.log("success");
+        console.log(response);
+        if(response.success === "true"){
+            alert("Your post is twiteed successfully");
+            location.reload();
+        }else {
+            alert("There is an error, please try again");
+        }
+        // response.redirect()
     }, function (error) {
         console.log(error.statusText);
     }).catch(function (error) {

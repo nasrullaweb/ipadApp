@@ -37,12 +37,12 @@ app.listen(port, function(){
 app.post('/uploadtwitter', (req, res)=> {
     console.log(req.body.image);
     console.log(req.body.text);
-    res.send({
-        sucess : true
-    });
+    // res.send({
+    //     sucess : true
+    // });
    // var b64content = fs.readFileSync(req.body.image, { encoding: 'base64' })
     var b64content = req.body.image.split(',')[1];
-    console.log(b64content);
+    // console.log(b64content);
     // first we must post the media to Twitter
     T.post('media/upload', { media_data: b64content }, function (err, data, response) {
       // now we can assign alt text to the media, for use by screen readers and
@@ -57,7 +57,9 @@ app.post('/uploadtwitter', (req, res)=> {
           var params = { status: req.body.text, media_ids: [mediaIdStr] }
     
           T.post('statuses/update', params, function (err, data, response) {
-            console.log(data)
+            res.send ({
+                "success" : "true"
+            });
           })
         }
       })
