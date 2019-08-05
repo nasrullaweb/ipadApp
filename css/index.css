@@ -487,6 +487,20 @@ li {
     font-family: "IBMPlexSans Bold";
 }
 
+.previewCntr {
+    position: relative;
+}
+
+.editBtn {
+    position: absolute;
+    top: 0;
+    right: 70px;
+    cursor: pointer;
+}
+.editBtn img {
+    width: 20px;
+}
+
 .popup .confirmPledgeCntr {
     text-align: left;
 }
@@ -1248,4 +1262,35 @@ li {
         background: -webkit-linear-gradient(to top, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0) 30%);
         background: linear-gradient(to top, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0) 30%);
     }
+}
+
+.popupText {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .8);
+    z-index: 10000;
+    display: none;
+}
+
+.popupText .close {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-size: 20px;
+}
+
+.editTweet {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    width: 400px;
+    height: 200px;
+    font-size: 17px;
+    padding: 10px;
 }

@@ -10,7 +10,7 @@ let pledgeMessageList = {
     'Be Proactive' : 'I pledge to <span>Be Proactive</span> and implement change within my own team.',
     'Be Vocal' : 'I pledge to <span>Be Vocal</span> and give people an opportunity to speak up.',
     'Be Intentional' : 'I pledge to <span>Be Intentional</span> and mentor women for leadership roles.',
-    'Be Cognisant' : 'I pledge to <span>Be Cognisant</span> and recognise and correct unconscious bias.',
+    'Be Cognizant' : 'I pledge to <span>Be Cognizant</span> and recognize and correct unconscious bias.',
     'Be Receptive' : 'I pledge to <span>Be Receptive</span> and solicit opinions from all the voices in the room.',
     'Be Accountable' : 'I pledge to <span>Be Accountable</span> and make equality a formal business priority.',
     'Be Aware' : 'I pledge to <span>Be Aware</span> and hire the best qualified people even if they are different than me.',
@@ -242,6 +242,7 @@ if (submitYourPledge) {
         if (document.querySelector('.myPledge').value) {
             myPledge = 'I pledge to Be ' + document.querySelector('.myPledge').value + '.';
             document.querySelector('.myPledgeText').innerText = myPledge;
+            document.querySelector('.editTweet').value = myPledge + " See how you can do your part at ibm.com/BeEqual #BeEqual";
             chooseYourPledge.classList.add('displayNone');
             emailAndShare.classList.remove('displayNone');
             photoFrame.src = imgCntr.src;
@@ -293,3 +294,18 @@ twitterBtn.addEventListener('click', function(event){
 
 });
 
+const editBtn = document.querySelector('.editBtn');
+if(editBtn){
+    editBtn.addEventListener('click', function(event){
+        $('.editTweet').val($('.previewCntr p').text());
+        $('.popupText').show();
+    })
+};
+
+const editText = document.querySelector('.popupText .close');
+if(editText){
+    editText.addEventListener('click', function(event){
+        $('.previewCntr p').text($('.editTweet').val());
+        $('.popupText').hide();
+    })
+};
